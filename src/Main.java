@@ -5,23 +5,49 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int len = 12;
+		int len = 64;
 		Random random = new Random();
-		int[] ArrayStep = new int[len];
 
-		// --------------------------------
+		// -------------------------------- Selection Sort for Array with Random Values
 		for (int x = 0; x < 12; x++){
-			for (int j = 0; j < ArrayStep.length; j++){
-				ArrayStep[j] = random.nextInt();
-			}
-			long starttime1 = System.nanoTime();
-			ArrayStep = Selection(ArrayStep);
-			long endtime1 = System.nanoTime();
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = random.nextInt();
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
 
-			System.out.println("Selection Sort for an Array with " + len + " spots takes " + (endtime1 - starttime1) + " nanoseconds"); // outputs time elapsed in nanoseconds
-		len = len*2;
+				System.out.println("Selection Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
 		}
-		// --------------------------------
+		// -------------------------------- Selection Sort for Array with Random Values
+
+		// -------------------------------- Insertion Sort for Array with Random Values
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = random.nextInt();
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Insertion Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
+		}
+		// -------------------------------- Insertion Sort for Array with Random Values
 
 
 
