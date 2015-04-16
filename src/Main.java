@@ -7,8 +7,8 @@ public class Main {
 
 		int len = 64;
 		Random random = new Random();
-
-		// -------------------------------- Selection Sort for Array with Random Values //conor sucks
+		
+		// -------------------------------- Selection Sort for Array with Random Values
 		for (int x = 0; x < 12; x++){
 			long TotalTime = 0;
 			for (int r = 0; r < 10; r++){
@@ -48,6 +48,93 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Random Values
+
+		// -------------------------------- Selection Sort for Array with Sorted Values
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = j;
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an Array with Sorted Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an Array with Sorted Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
+		}
+		// -------------------------------- Selection Sort for Array with Sorted Values
+
+		// -------------------------------- Insertion Sort for Array with Sorted Values
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = j;
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an Array with Sorted Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an Array with Sorted Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
+		}
+		// -------------------------------- Insertion Sort for Array with Sorted Values 
+
+		// -------------------------------- Selection Sort for Array with Reversed Values
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = (ArrayStep.length - j);
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an Array with Reversed Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an Array with Reversed Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
+		}
+		// -------------------------------- Selection Sort for Array with Reversed Values
+
+		// -------------------------------- Insertion Sort for Array with Reversed Values
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = (ArrayStep.length - j);
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an Array with Reversed Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an Array with Reversed Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			len = len*2;
+		}
+		// -------------------------------- Insertion Sort for Array with Reversed Values
+
+
+
 
 
 
