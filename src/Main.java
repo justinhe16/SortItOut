@@ -8,7 +8,7 @@ public class Main {
 		int len = 64;
 		Random random = new Random();
 
-		// -------------------------------- Selection Sort for Array with Random Values
+		// -------------------------------- Selection Sort for Array with Random Values //conor sucks
 		for (int x = 0; x < 12; x++){
 			long TotalTime = 0;
 			for (int r = 0; r < 10; r++){
@@ -20,7 +20,7 @@ public class Main {
 				ArrayStep = Selection(ArrayStep);
 				long endtime1 = System.currentTimeMillis();
 
-				System.out.println("Selection Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
 				TotalTime += (endtime1 - starttime1);
 			}
 			System.out.println("Average Time for Selection Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
@@ -41,7 +41,7 @@ public class Main {
 				ArrayStep = Insertion(ArrayStep);
 				long endtime1 = System.currentTimeMillis();
 
-				System.out.println("Insertion Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
 				TotalTime += (endtime1 - starttime1);
 			}
 			System.out.println("Average Time for Insertion Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
