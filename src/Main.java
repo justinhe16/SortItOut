@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 
 		int len = 64;
 		Random random = new Random();
+		PrintWriter CSVFile = new PrintWriter("data.csv");
 		
 		// -------------------------------- Selection Sort for Array with Random Values
 		for (int x = 0; x < 12; x++){
@@ -27,7 +30,7 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Selection Sort for Array with Random Values
-
+		
 		// -------------------------------- Insertion Sort for Array with Random Values
 		len = 64;
 		for (int x = 0; x < 12; x++){
@@ -48,7 +51,7 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Random Values
-
+		/*
 		// -------------------------------- Selection Sort for Array with Sorted Values
 		len = 64;
 		for (int x = 0; x < 12; x++){
@@ -132,7 +135,7 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Reversed Values
-
+	*/
 
 
 
