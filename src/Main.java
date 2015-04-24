@@ -10,7 +10,52 @@ public class Main {
 		int len = 64;
 		Random random = new Random();
 		PrintWriter CSVFile = new PrintWriter("data.csv");
-		
+		//Length, Selection Time, Insertion Time.
+
+		//1st CSV: Array Random Values
+		long ARVLength;
+		long ARVSelection;
+		long ARVInsertion;
+		//2nd CSV: Array Sorted Values
+		//3rd CSV: Array Reverse Values
+
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			ARVLength = len;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = random.nextInt();
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			ARVSelection = TotalTime/10;
+			TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = random.nextInt();
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an Array with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an Array with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds\
+			ARVInsertion=TotalTime/10;
+			CSVFile.println(ARVLength + "," + ARVSelection + "," + ARVInsertion);
+			len=len*2;
+		}
+
+		/*
 		// -------------------------------- Selection Sort for Array with Random Values
 		for (int x = 0; x < 12; x++){
 			long TotalTime = 0;
@@ -30,7 +75,7 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Selection Sort for Array with Random Values
-		
+
 		// -------------------------------- Insertion Sort for Array with Random Values
 		len = 64;
 		for (int x = 0; x < 12; x++){
@@ -51,7 +96,7 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Random Values
-		/*
+		
 		// -------------------------------- Selection Sort for Array with Sorted Values
 		len = 64;
 		for (int x = 0; x < 12; x++){
@@ -135,13 +180,14 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Reversed Values
-	*/
+		 */
 
 
 
 
 
-
+		CSVFile.flush();
+		CSVFile.close();
 	}
 	/*
 		int[] testArray = new int[]{10, 21, 16, 7, 2, 5, 28, 3, 1};
