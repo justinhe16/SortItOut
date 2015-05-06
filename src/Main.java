@@ -24,8 +24,13 @@ public class Main {
 		long AReVLength;
 		long AReVSelection;
 		long AReVInsertion;
+		//4th CSV: ArrayList Random Values
+		long ArLRVLength;
+		long ArLRVSelection;
+		long ArLRVInsertion;
 
 
+		CSVFile.println("Array Random Values");
 		for (int x = 0; x < 12; x++){
 			long TotalTime = 0;
 			ARVLength = len;
@@ -63,6 +68,7 @@ public class Main {
 		}
 
 		// -----------------------------------
+		CSVFile.println("Array Sorted Values");
 		len = 64;
 		for (int x = 0; x < 12; x++){
 			long TotalTime = 0;
@@ -100,7 +106,80 @@ public class Main {
 			len=len*2;
 		}
 		// ---------------------------------
+		CSVFile.println("Array Reversed Values");
+		len = 64;
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			AReVLength = len;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = (ArrayStep.length - j);
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
 
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an Array with Reversed Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an Array with Reversed Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			AReVSelection = TotalTime/10;
+			TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				int[] ArrayStep = new int[len];
+				for (int j = 0; j < ArrayStep.length; j++){
+					ArrayStep[j] = (ArrayStep.length - j);
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an Array with Reversed Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an Array with Reversed Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			AReVInsertion = TotalTime/10;
+			CSVFile.println(AReVLength + "," + AReVSelection + "," + AReVInsertion);
+			len=len*2;
+		}
+		// ---------------------------
+		CSVFile.println("ArrayList Random Values");
+		for (int x = 0; x < 12; x++){
+			long TotalTime = 0;
+			ArLRVLength = len;
+			for (int r = 0; r < 10; r++){
+				ArrayList<Integer> ArrayStep = new ArrayList<Integer>();
+				for (int j = 0; j < len; j++){
+					ArrayStep.add(random.nextInt());
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Selection(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Selection Sort for an ArrayList with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Selection Sort for an ArrayList with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds
+			ArLRVSelection = TotalTime/10;
+			TotalTime = 0;
+			for (int r = 0; r < 10; r++){
+				ArrayList<Integer> ArrayStep = new ArrayList<Integer>();
+				for (int j = 0; j < len; j++){
+					ArrayStep.add(random.nextInt());
+				}
+				long starttime1 = System.currentTimeMillis();
+				ArrayStep = Insertion(ArrayStep);
+				long endtime1 = System.currentTimeMillis();
+
+				System.out.println("Trial #" + (r+1) + " Insertion Sort for an ArrayList with Random Values with " + len + " spots takes " + (endtime1 - starttime1) + " milliseconds"); // outputs time elapsed in milliseconds
+				TotalTime += (endtime1 - starttime1);
+			}
+			System.out.println("Average Time for Insertion Sort for an ArrayList with Random Values with " + len + " spots takes " + (TotalTime/10) + " milliseconds"); //out puts average time in milliseconds\
+			ArLRVInsertion=TotalTime/10;
+			CSVFile.println(ArLRVLength + "," + ArLRVSelection + "," + ArLRVInsertion);
+			len=len*2;
+		}
 
 
 
@@ -189,7 +268,8 @@ public class Main {
 			len = len*2;
 		}
 		// -------------------------------- Insertion Sort for Array with Sorted Values 
-
+		 */
+		/*
 		// -------------------------------- Selection Sort for Array with Reversed Values
 		len = 64;
 		for (int x = 0; x < 12; x++){
